@@ -8,7 +8,7 @@ export const Product = ({ products }) => {
     
     <>
         { products.map( (prd) => (
-        <div key={prd.id} className="col-lg-4">
+        <div key={prd.id} className="col-lg-3">
             <ul className="list-group shadow">
                 <li className="list-group-item">
                     <div className="media align-items-lg-center flex-column flex-lg-row p-3">

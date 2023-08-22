@@ -5,6 +5,7 @@ import { ListProduct } from './components/admin/ListProduct';
 import { Product } from './components/products/Product';
 import './styles/index.css';
 import { productReducer } from './reducers/productReducer';
+import { NavBar } from './components/ui/NavBar';
 
 
 const initialProducts = [
@@ -44,9 +45,8 @@ function App() {
 
 
 
-  const [ products ] = useReducer(productReducer, initialProducts);
+  const [ state, dispatch ] = useReducer(productReducer, initialProducts);
 
-  
   
   const onClickAddProduct = (e, formValue) => {
     e.preventDefault();
@@ -57,18 +57,19 @@ function App() {
 
   return (
     <>
-      <div className="container-fliud">
-        <div className="row text-center mb-5 mt-5">
+        <NavBar />
+      <div className="container-fluid">
+        {/* <div className="row text-center mb-5 mt-5">
             <div className="col-lg-7 mx-auto">
                 <h1 className="display-4" style={{  fontWeight:'lighter'}}>Product Reducer</h1>
             </div>
-        </div>
+        </div> */}
         <div className="row"  style={{ backgroundColor: '#000', padding:50}}>
             <AddProduct onClickAddProduct={(e, value) => onClickAddProduct(e, value)}/>
             <ListProduct />
         </div>
           <div className='row p-5'>
-            <Product products={products}/>
+            <Product products={state}/>
         </div>
       </div>
     </>
