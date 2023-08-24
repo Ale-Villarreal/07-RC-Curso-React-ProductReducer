@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
 
 export const NavBar = () => {
 
+    const { login, user  } = useContext(AuthContext)
 
   return (
     <header className="p-3 text-bg-dark">
@@ -14,8 +16,14 @@ export const NavBar = () => {
                 </div>
 
                 <div className="text-end">
-                Nicolas Larrosa
-                <button type="button" className="btn btn-outline-light m-2">Login</button>
+                {user?.name}
+                <button 
+                    type="button" 
+                    className="btn btn-outline-light m-2"
+                    onClick={login}
+                >
+                    Login
+                </button>
                 </div>
             </div>
         </div>

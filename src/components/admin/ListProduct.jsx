@@ -1,7 +1,8 @@
 import React from 'react'
 
-export const ListProduct = () => {
+export const ListProduct = ({ products, onDeleteProduct }) => {
 
+    
 
   return (
     <div className="col-lg-8" >
@@ -15,15 +16,22 @@ export const ListProduct = () => {
                 </tr>
             </thead>
             <tbody>
+                {  products.map( (prd) => (
                 <tr>
-                <th scope="row">SKU-78765</th>
-                <td>Apple iPhone XR (Red, 128 GB)</td>
-                <td>$125.365</td>
+                <th scope="row">{ prd.id }</th>
+                <td>{ prd.title  }</td>
+                <td>{ prd.price }</td>
                 <td>
                     {/* <button className='btn btn-info mx-2 btn-sm'>Editar</button> */}
-                    <button className='btn btn-danger  btn-sm'>Eliminar</button>
+                    <button 
+                        className='btn btn-danger  btn-sm'
+                        onClick={() => onDeleteProduct(prd.id)}
+                    >
+                        Eliminar
+                    </button>
                 </td>
                 </tr>
+                ))}
             </tbody>
         </table>
     </div>
