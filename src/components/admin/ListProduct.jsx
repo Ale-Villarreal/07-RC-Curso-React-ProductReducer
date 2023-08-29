@@ -17,7 +17,7 @@ export const ListProduct = ({ products, onDeleteProduct }) => {
             </thead>
             <tbody>
                 {  products.map( (prd) => (
-                <tr>
+                <tr key={prd.id}>
                 <th scope="row">{ prd.id }</th>
                 <td>{ prd.title  }</td>
                 <td>{ prd.price }</td>

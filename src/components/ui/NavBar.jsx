@@ -3,7 +3,9 @@ import { AuthContext } from '../../contexts/AuthContext'
 
 export const NavBar = () => {
 
-    const { login, user  } = useContext(AuthContext)
+    const { login, logout,  state  } = useContext(AuthContext)
+
+
 
   return (
     <header className="p-3 text-bg-dark">
@@ -16,7 +18,19 @@ export const NavBar = () => {
                 </div>
 
                 <div className="text-end">
-                {user?.name}
+                {state?.name}
+
+                { state.isLogged && (
+                <button 
+                    type="button" 
+                    className="btn btn-outline-light m-2"
+                    onClick={logout}
+                >
+                    Logout
+                </button>
+                )}
+
+                { !state?.isLogged && (
                 <button 
                     type="button" 
                     className="btn btn-outline-light m-2"
@@ -24,6 +38,7 @@ export const NavBar = () => {
                 >
                     Login
                 </button>
+                )}
                 </div>
             </div>
         </div>
