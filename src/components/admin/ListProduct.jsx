@@ -24,6 +24,7 @@ export const ListProduct = ({ products, onDeleteProduct }) => {
                 <td>
                     {/* <button className='btn btn-info mx-2 btn-sm'>Editar</button> */}
                     <button 
+                        data-testid='buttonDelete'
                         className='btn btn-danger  btn-sm'
                         onClick={() => onDeleteProduct(prd.id)}
                     >
