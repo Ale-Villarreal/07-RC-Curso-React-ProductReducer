@@ -1,4 +1,4 @@
-import { renderHook } from "@testing-library/react"
+import { act, renderHook } from "@testing-library/react"
 import { useForm } from "../../src/hooks/useForm"
 
 describe( 'TEST HOOK useForm', () => {
@@ -28,5 +28,20 @@ describe( 'TEST HOOK useForm', () => {
             },
             onChangeForm: expect.any(Function)
         })
+    });
+
+    test( 'CONTROL EVENT  HOOKS , Validar Cambio del title', () => {
+
+        const newTitle = 'Motorola A45';
+        const fieldTitle = 'title';
+
+        const { result } = renderHook(() =>useForm(initialValues));
+        const { onChangeForm }  =  result.current;
+
+        act( () => {
+            onChangeForm(newTitle,  fieldTitle);
+        });
+
+        expect(result.current.form.title).toBe(newTitle);
     })
 })
