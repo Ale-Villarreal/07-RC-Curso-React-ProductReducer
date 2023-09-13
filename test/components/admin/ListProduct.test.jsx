@@ -22,7 +22,7 @@ describe('TEST -COMPONENT <ListProduct />', () => {
 
     test('EXECUTE EVENT - Validar el  LLamado a la accion Elmimar', () => {
         render (<ListProduct products={data} onDeleteProduct={onDeleteProduct}/>);
-        const buttonDelete = screen.getByTestId('buttonDelete');
+        const buttonDelete = screen.getByRole('button');
         fireEvent.click(buttonDelete, {value: data[0].id});
 
         expect( onDeleteProduct ).toHaveBeenCalled();

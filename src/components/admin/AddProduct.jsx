@@ -21,14 +21,6 @@ export const AddProduct = ({ onClickAddProduct }) => {
 
   const { form, onChangeForm } = useForm(data);
 
-  // const [form, setForm] = useState({});
-
-  // const onChangeForm = (value, field) => {
-  //   setForm({
-  //     ...form,
-  //     [field]: value,
-  //   });
-  // };
 
   return (
     <div className="col-lg-4">
